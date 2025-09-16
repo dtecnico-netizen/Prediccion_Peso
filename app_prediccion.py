@@ -10,7 +10,7 @@ import os
 st.markdown(
     """
     <div style='display: flex; justify-content: center; margin-bottom: -60px; margin-top: 10px;'>
-        <img src='logo mejorado.jpg' width='180' style='opacity:0.15; filter: grayscale(100%);'/>
+        <img src='logo_mejorado.jpg' width='180' style='opacity:0.15; filter: grayscale(100%);'/>
     </div>
     """,
     unsafe_allow_html=True
@@ -92,6 +92,7 @@ if st.button('Generar Informe'):
     ax2.set_title('Peso estimado vs real por Cons_Acum')
     ax2.legend()
     st.pyplot(fig2)
+
 
 
 
