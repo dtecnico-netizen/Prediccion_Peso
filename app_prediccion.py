@@ -10,8 +10,8 @@ import os
 
 # Cargar coeficientes de los modelos
 base_path = os.path.dirname(__file__)
-df_dia_vs_cons = pd.read_csv(os.path.join(base_path, '../resultados_dia_vs_cons.csv'))
-df_cons_vs_peso = pd.read_csv(os.path.join(base_path, '../resultados_cons_vs_peso.csv'))
+df_dia_vs_cons = pd.read_csv(os.path.join(base_path, 'resultados_dia_vs_cons.csv'))
+df_cons_vs_peso = pd.read_csv(os.path.join(base_path, 'resultados_cons_vs_peso.csv'))
 
 # Obtener opciones únicas
 razas = df_dia_vs_cons['RAZA'].unique()
@@ -82,3 +82,4 @@ if st.button('Generar Informe'):
     ax2.set_title('Peso estimado vs real por Cons_Acum')
     ax2.legend()
     st.pyplot(fig2)
+
