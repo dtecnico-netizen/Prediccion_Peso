@@ -6,24 +6,6 @@ import os
 
 
 
-# Mostrar logo como marca de agua (watermark) de fondo
-logo_path = os.path.join(os.path.dirname(__file__), 'logo mejorado.jpg')
-st.markdown(f"""
-    <style>
-    .watermark-bg {{
-        position: fixed;
-        top: 0; left: 0; width: 100vw; height: 100vh;
-        z-index: 0;
-        pointer-events: none;
-        background: url('file://{logo_path}') no-repeat center center;
-        background-size: 350px auto;
-        opacity: 0.08;
-    }}
-    </style>
-    <div class='watermark-bg'></div>
-    """, unsafe_allow_html=True)
-
-
 # Mostrar logo decorativo centrado y semitransparente (compatible con Streamlit Cloud)
 st.markdown(
     """
@@ -110,6 +92,7 @@ if st.button('Generar Informe'):
     ax2.set_title('Peso estimado vs real por Cons_Acum')
     ax2.legend()
     st.pyplot(fig2)
+
 
 
 
