@@ -28,8 +28,8 @@ st.title('Predicción Consumo Acumulado y Peso')
 raza = st.selectbox('Seleccione la RAZA', razas, index=list(razas).index('ROSS') if 'ROSS' in razas else 0)
 sexo = st.selectbox('Seleccione el SEXO', sexos, index=list(sexos).index('MIXTO') if 'MIXTO' in sexos else 0)
 dia = st.number_input('Ingrese el Día', min_value=1, step=1)
-cons_acum_real = st.number_input('Ingrese el Cons_Acum real', min_value=0.0, step=1.0)
-peso_real = st.number_input('Ingrese el Peso real', min_value=0.0, step=1.0)
+cons_acum_real = st.number_input('Ingrese el Consumo Acumulado real en gramos', min_value=0.0, step=1.0)
+peso_real = st.number_input('Ingrese el Peso real en gramos', min_value=0.0, step=1.0)
 
 # Filtrar coeficientes
 row_dia_vs_cons = df_dia_vs_cons[(df_dia_vs_cons['RAZA'] == raza) & (df_dia_vs_cons['SEXO'] == sexo)].iloc[0]
@@ -87,6 +87,7 @@ if st.button('Generar Informe'):
     ax2.set_title('Peso estimado vs real por Cons_Acum')
     ax2.legend()
     st.pyplot(fig2)
+
 
 
 
