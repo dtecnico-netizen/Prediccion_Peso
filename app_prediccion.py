@@ -4,12 +4,23 @@ import pandas as pd
 import numpy as np
 import os
 
-# Mostrar logo discreto en la esquina superior izquierda
+
+
+# Mostrar logo como marca de agua (watermark) de fondo
 logo_path = os.path.join(os.path.dirname(__file__), 'logo mejorado.jpg')
 st.markdown(f"""
-    <div style='position: fixed; top: 1.5rem; left: 1.5rem; z-index: 10;'>
-        <img src='file://{logo_path}' width='70' style='opacity:0.7; border-radius:10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);'/>
-    </div>
+    <style>
+    .watermark-bg {{
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+        background: url('file://{logo_path}') no-repeat center center;
+        background-size: 350px auto;
+        opacity: 0.08;
+    }}
+    </style>
+    <div class='watermark-bg'></div>
     """, unsafe_allow_html=True)
 
 
@@ -87,6 +98,7 @@ if st.button('Generar Informe'):
     ax2.set_title('Peso estimado vs real por Cons_Acum')
     ax2.legend()
     st.pyplot(fig2)
+
 
 
 
