@@ -22,7 +22,7 @@ df_cons_vs_peso = pd.read_csv(os.path.join(base_path, 'resultados_cons_vs_peso.c
 razas = df_dia_vs_cons['RAZA'].unique()
 sexos = df_dia_vs_cons['SEXO'].unique()
 
-st.title('Predicción Consumo Acumulado y Peso')
+st.title('ALBATEQ S. A. Predicción Consumo Acumulado y Peso')
 
 # Selección de parámetros
 raza = st.selectbox('Seleccione la RAZA', razas, index=list(razas).index('ROSS') if 'ROSS' in razas else 0)
@@ -87,6 +87,7 @@ if st.button('Generar Informe'):
     ax2.set_title('Peso estimado vs real por Cons_Acum')
     ax2.legend()
     st.pyplot(fig2)
+
 
 
 
