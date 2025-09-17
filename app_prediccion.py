@@ -72,8 +72,8 @@ if st.button('Generar Informe'):
     dias = np.arange(1, 45)
     cons_acum_pred = intercepto1 + sum([coefs1[i] * dias**i for i in range(5)])
     ax1.plot(dias, cons_acum_pred, label='Cons_Acum estimado', color='red')
-    ax1.scatter([dia], [cons_acum_real], color='blue', label='Cons_Acum real (input)', s=80)
-    ax1.scatter([dia], [cons_acum_estimado], color='green', label='Cons_Acum estimado (input)', s=80, marker='x')
+    ax1.scatter([dia], [cons_acum_real], color='blue', label='Cons Acumulado real (input)', s=80)
+    ax1.scatter([dia], [cons_acum_estimado], color='green', label='Cons Acumulado estimado (input)', s=80, marker='x')
     ax1.set_xlabel('Día')
     ax1.set_ylabel('Cons_Acum')
     ax1.set_title('Cons_Acum estimado vs real por Día')
@@ -89,9 +89,10 @@ if st.button('Generar Informe'):
     ax2.scatter([cons_acum_real], [peso_estimado], color='green', label='Peso estimado (input)', s=80, marker='x')
     ax2.set_xlabel('Cons_Acum')
     ax2.set_ylabel('Peso')
-    ax2.set_title('Peso estimado vs real por Cons_Acum')
+    ax2.set_title('Peso estimado vs real por Cons Acumulado')
     ax2.legend()
     st.pyplot(fig2)
+
 
 
 
