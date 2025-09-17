@@ -53,14 +53,14 @@ peso_estimado = intercepto2 + sum([coefs2[i] * cons_acum_real**i for i in range(
 if st.button('Generar Informe'):
 
     st.subheader('Resultados')
-    st.write(f"Cons_Acum estimado para Día {dia}: **{cons_acum_estimado:.2f}**")
-    st.write(f"Cons_Acum real ingresado: **{cons_acum_real:.2f}**")
+    st.write(f"Consumo Acumulado Estimado para Día {dia}: **{cons_acum_estimado:.2f}**")
+    st.write(f"Consumo Acumulado Real Ingresado: **{cons_acum_real:.2f}**")
     diff_cons = cons_acum_real - cons_acum_estimado
     pct_cons = (diff_cons / cons_acum_estimado * 100) if cons_acum_estimado != 0 else 0
-    st.write(f"Diferencia Cons_Acum (real - estimado): **{diff_cons:.2f}** ({pct_cons:.2f}%)")
+    st.write(f"Diferencia Consumo Acumulado (real - estimado): **{diff_cons:.2f}** ({pct_cons:.2f}%)")
     st.write('---')
-    st.write(f"Peso estimado para Cons_Acum {cons_acum_real}: **{peso_estimado:.2f}**")
-    st.write(f"Peso real ingresado: **{peso_real:.2f}**")
+    st.write(f"Peso Estimado para Consumo Acumulado {cons_acum_real}: **{peso_estimado:.2f}**")
+    st.write(f"Peso Real ingresado: **{peso_real:.2f}**")
     diff_peso = peso_real - peso_estimado
     pct_peso = (diff_peso / peso_estimado * 100) if peso_estimado != 0 else 0
     st.write(f"Diferencia Peso (real - estimado): **{diff_peso:.2f}** ({pct_peso:.2f}%)")
@@ -71,12 +71,12 @@ if st.button('Generar Informe'):
     fig1, ax1 = plt.subplots()
     dias = np.arange(1, 45)
     cons_acum_pred = intercepto1 + sum([coefs1[i] * dias**i for i in range(5)])
-    ax1.plot(dias, cons_acum_pred, label='Cons_Acum estimado', color='red')
-    ax1.scatter([dia], [cons_acum_real], color='blue', label='Cons Acumulado real (input)', s=80)
-    ax1.scatter([dia], [cons_acum_estimado], color='green', label='Cons Acumulado estimado (input)', s=80, marker='x')
+    ax1.plot(dias, cons_acum_pred, label='Consumo Acumulado Estimado', color='red')
+    ax1.scatter([dia], [cons_acum_real], color='blue', label='Consumo Acumulado Real (input)', s=80)
+    ax1.scatter([dia], [cons_acum_estimado], color='green', label='Consumo Acumulado Estimado (input)', s=80, marker='x')
     ax1.set_xlabel('Día')
-    ax1.set_ylabel('Cons_Acum')
-    ax1.set_title('Cons_Acum estimado vs real por Día')
+    ax1.set_ylabel('Consumo Acumulado')
+    ax1.set_title('Consumo Acumulado Estimado vs Real por Día')
     ax1.legend()
     st.pyplot(fig1)
 
@@ -84,14 +84,15 @@ if st.button('Generar Informe'):
     fig2, ax2 = plt.subplots()
     cons_range = np.linspace(0, max(cons_acum_real, 4500), 100)
     peso_pred = intercepto2 + sum([coefs2[i] * cons_range**i for i in range(5)])
-    ax2.plot(cons_range, peso_pred, label='Peso estimado', color='orange')
-    ax2.scatter([cons_acum_real], [peso_real], color='blue', label='Peso real (input)', s=80)
+    ax2.plot(cons_range, peso_pred, label='Peso Estimado', color='orange')
+    ax2.scatter([cons_acum_real], [peso_real], color='blue', label='Peso Real (input)', s=80)
     ax2.scatter([cons_acum_real], [peso_estimado], color='green', label='Peso estimado (input)', s=80, marker='x')
-    ax2.set_xlabel('Cons_Acum')
+    ax2.set_xlabel('Consumo Acumulado')
     ax2.set_ylabel('Peso')
-    ax2.set_title('Peso estimado vs real por Cons Acumulado')
+    ax2.set_title('Peso Estimado vs Real por Cons Acumulado')
     ax2.legend()
     st.pyplot(fig2)
+
 
 
 
